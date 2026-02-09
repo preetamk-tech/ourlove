@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart Love</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(180deg,  #FFB6D9  0%, #1c9a9f 100%);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* ❤️ HEART */
+.heart{
+    position:relative;
+    width:150px;
+    height:150px;
+}
+
+@media (min-width:768px){
+    .heart{
+        width:200px;
+        height:200px;
+    }
+}
+
+
+.left,.right{
+    background:red;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    position:absolute;
+    top:20px;
+}
+
+.left{ left:20px; }
+.right{ left:80px; }
+
+.bottom{
+    background:red;
+    width:100px;
+    height:100px;
+    position:absolute;
+    top:50px;
+    left:50px;
+    transform:rotate(45deg);
+}
+
+/* 💐 FLOWERS */
+.flower{
+    position:fixed;
+    top:-50px;
+    font-size:28px;
+    animation:fall linear forwards;
+    pointer-events:none;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+/* 💖 TEXT */
+h1{
+    margin-top:20px;
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(199, 67, 67);
+    font-size:clamp(2.5rem,6vw,7rem);
+    text-align:center;
+    text-shadow:1px 1px 15px blue;
+}
+
+.reveal-text span{
+    opacity:0;
+    transform:translateY(10px);
+    display:inline-block;
+    animation:reveal 0.4s forwards;
+    white-space:pre;
+}
+
+@keyframes reveal{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="heart">
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="bottom"></div>
+</div>
+
+<h1 class="reveal-text">I LOVE YOU JAAN</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
+<script>
+/* ❤️ HEART ANIMATION */
+gsap.from(".left",{
+    y:-300,
+    duration:2,
+    rotate:360,
+    scale:0
+});
+gsap.from(".right",{
+    y:-300,
+    duration:2,
+    rotate:360,
+    scale:0
+});
+gsap.from(".bottom",{
+    y:-300,
+    duration:2,
+    rotate:360,
+    scale:0,
+    borderRadius:"50%"
+});
+
+/* 🌸 FLOWER RAIN */
+function createFlower(){
+    const flower=document.createElement("div");
+    flower.classList.add("flower");
+
+    const flowers=["🌹","🌷","💐","🥀","🌸","🌹","🌺","🌷","💐","🥀","🪻","🪷","🌼","🌻","🌸","🌹","🌺","🌷","💐","🥀","🪻","🪷","🌼","🌻"];
+    flower.innerText=flowers[Math.floor(Math.random()*flowers.length)];
+
+    flower.style.left=Math.random()*window.innerWidth+"px";
+    flower.style.fontSize=(Math.random()*20+20)+"px";
+    flower.style.animationDuration=(Math.random()*3+3)+"s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(()=>flower.remove(),6000);
+}
+
+setInterval(createFlower,120);
+
+/* ✨ TEXT REVEAL */
+document.querySelectorAll(".reveal-text").forEach(el=>{
+    const text=el.innerText;
+    el.innerHTML="";
+    text.split(/(\s+)/).forEach((word,i)=>{
+        const span=document.createElement("span");
+        span.textContent=word;
+        span.style.animationDelay=`${i*0.30}s`;
+        el.appendChild(span);
+    });
+});
+</script>
+
+</body>
+</html>

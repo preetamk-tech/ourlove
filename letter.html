@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Letter 💌</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="page-letter">
+
+<div id="wrapper">
+
+    <!-- GIFT BOX ANIMATION -->
+    <div class="gift-box-wrapper">
+        <div class="gift-box">
+            <div class="gift-box-body"></div>
+            <div class="gift-ribbon"></div>
+            <div class="gift-bow"></div>
+        </div>
+    </div>
+
+    <!-- LETTER OPEN BUTTON -->
+    <div class="letter-btn-wrap">
+        <button id="btn__letter" class="btn-gift-tap">
+            TAP TO OPEN
+            <i class="fa-regular fa-envelope"></i>
+        </button>
+    </div>
+
+    <!-- LETTER POPUP -->
+    <div class="box__letter">
+        <div class="letter__border">
+
+            <!-- LETTER -->
+            <div class="letter">
+
+                <!-- TITLE -->
+                <div class="title__letter"></div>
+
+                <!-- CONTENT -->
+                <div class="content__letter">
+
+                    <!-- LEFT -->
+                    <div class="left">
+                        <img
+                            id="heart__letter"
+                            src="https://media.giphy.com/media/YKUvclrGYmDKXwtphf/giphy.gif"
+                            alt="heart"
+                            class="left-gif"
+                        >
+
+                        <img
+                            src="https://media.giphy.com/media/m85llaN7ZkFIHtURiC/giphy.gif"
+                            alt="love"
+                            class="left-gif"
+                        >
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="right">
+                        <div class="text__letter">
+                            <p></p>
+                        </div>
+                        <div  class="button-group"  style="align-self:flex-end; box-sizing:border-box; color:#000; display:block; font-family:Arial,sans-serif; height:50px; width:50px; margin:0 auto; padding:5px; object-fit:contain;">
+                                <button id="question" class="btn btn-yes" onclick="goToheart()">Will you be mine?</button>
+                            </div>
+                        <img
+                            src="assets/lettersmall.gif"
+                            alt="cute"
+                            class="letter-small-gif"
+                        >
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CLOSE BUTTON -->
+            <div class="close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<!-- LETTER JS -->
+<script src="js/letter.js"></script>
+
+</body>
+</html>
