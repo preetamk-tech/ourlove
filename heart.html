@@ -27,15 +27,8 @@ body{
     position:relative;
     width:150px;
     height:150px;
+    
 }
-
-@media (min-width:768px){
-    .heart{
-        width:200px;
-        height:200px;
-    }
-}
-
 
 .left,.right{
     background:red;
@@ -57,6 +50,21 @@ body{
     top:50px;
     left:50px;
     transform:rotate(45deg);
+}
+/* 📱 MOBILE ONLY → LEFT SHIFT */
+@media (max-width:767px){
+    .heart{
+        left:-25px;
+    }
+}
+
+/* 🖥 DESKTOP */
+@media (min-width:768px){
+    .heart{
+        width:200px;
+        height:180px;
+        left:0;
+    }
 }
 
 /* 💐 FLOWERS */
