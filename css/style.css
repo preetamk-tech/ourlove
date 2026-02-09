@@ -374,21 +374,59 @@ h1 {
 
 /* Mobile */
 @media (max-width: 600px) {
+
+    /* Letter popup size */
     .page-letter .letter__border {
-        height: 80vh;
+        width: 96%;
+        max-width: none;
+        height: auto;
+        max-height: 90vh;
+        padding: 10px;
     }
 
+    /* Keep horizontal layout */
     .page-letter .content__letter {
-        flex-direction: column;
+        flex-direction: row;
     }
 
-    .page-letter .content__letter .left,
+    /* Left side */
+    .page-letter .content__letter .left {
+        width: 42%;
+        padding: 6px;
+        gap: 6px;
+    }
+
+    .page-letter .content__letter .left .left-gif {
+        max-height: 110px;
+    }
+
+    /* Right side */
     .page-letter .content__letter .right {
-        width: 100%;
-        border: none;
+        width: 58%;
+        padding: 6px;
     }
 
+    /* Text scaling */
     .page-letter .text__letter p {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+
+    /* Title scaling */
+    .page-letter .title__letter {
+        font-size: 1.6rem;
+    }
+
+    /* Button */
+    .btn-yes {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+    }
+
+    /* Small gif */
+    .letter-small-gif {
+        width: 40px;
+        height: 40px;
     }
 }
+
